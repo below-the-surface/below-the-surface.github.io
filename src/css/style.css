@@ -191,7 +191,9 @@ footer {
 }
 
 .index-page-section {
-	cursor: pointer
+	cursor: pointer;
+	overflow: hidden;
+	margin-bottom: 0;
 }
 
 #to-main-story,
@@ -252,6 +254,8 @@ footer {
 .photo-gallery-container {
 	margin: 5em 3em;
 	position: relative;
+	width: 80%;
+	justify-self: center;
 }
 
 .home-image-gallery-image {
@@ -470,6 +474,10 @@ iframe {
 
 	#to-profiles-container {
 		grid-template-columns: 1fr;
+	}
+
+	#profile2 {
+		background-position: 45% 40%;
 	}
 
 	.index-page-container {
