@@ -3,11 +3,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="./src/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./src/css/style.css"/>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=PT+Sans:ital,wght@0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script src="./src/lib/d3.js"></script>
 </head>
@@ -17,7 +17,8 @@
             <ul class="navigator">
                 <li><a href="index.html">home</a></li>
                 <li><a href="main.html">story</a></li>
-                <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">profiles</a>
+                <li class="dropdown">
+                  <a href="javascript:void(0)" class="dropbtn">profiles</a>
                     <div class="dropdown-content">
                         <a href="profile-1.html">Profile1</a>
                         <a href="profile-2.html">Profile2</a>
@@ -46,8 +47,12 @@
         </section>
         <section class="index-page-section">
             <div id="to-profiles-container">
-              <div class="to-profile" id="profile1" onclick="myhref('profile-1.html')"><h2 class="h2-home">Cecilia Quarantiello</h2></div>
-              <div class="to-profile" id="profile2" onclick="myhref('profile-2.html')"><h2 class="h2-home">Alex Green</h2></div>
+              <div class="to-profile" id="profile1" type="image" onclick="myhref('profile-1.html')">
+                <h2 class="h2-home">Cecilia Quarantiello</h2>
+              </div>
+              <div class="to-profile" id="profile2" type="image" onclick="myhref('profile-2.html')">
+                <h2 class="h2-home">Alex Green</h2>
+              </div>
             </div>
         </section>
         <div class="index-page-section photo-gallery-container">
@@ -126,6 +131,7 @@
         function myhref(url){
             window.location.href = url;
         }
+
         var homeSlideIndex = 1;
         showSlides(homeSlideIndex);
 
