@@ -29,8 +29,8 @@
     <header>
         <div class="cover-pic" id="main-story-cover-pic">
           <div class="header-text-container">
-              <h1>Forgotten below the surface: How patients from two Massachusetts institutions were buried in unnamed graves</h1>
-               <p class="subhead"></p>
+              <h1>Forgotten below the surface</h1>
+               <p class="subhead">How patients from two Massachusetts institutions were buried in unnamed graves</p>
                <p class="byline">Stories and Photos by Asia London Palomba </br> Design and Development by Szu Yu Chen</p>
           </div>
         </div>
@@ -51,43 +51,71 @@
             </div>
         </section>
         <div class="index-page-section photo-gallery-container">
-                <!-- The grid: eight columns -->
+                <div class="home-image-gallery-image">
+                  <div class="numbertext">1 / 8</div>
+                  <img src="./src/assets/img/fernald/5.jpg">
+                </div>
+                <div class="home-image-gallery-image">
+                  <div class="numbertext">2 / 8</div>
+                  <img src="./src/assets/img/fernald/environment1.jpg">
+                </div>
+                <div class="home-image-gallery-image">
+                  <div class="numbertext">3 / 8</div>
+                  <img src="./src/assets/img/fernald/metstate.jpg">
+                </div>
+                <div class="home-image-gallery-image">
+                  <div class="numbertext">4 / 8</div>
+                  <img src="./src/assets/img/fernald/10.jpg">
+                </div>
+                <div class="home-image-gallery-image">
+                  <div class="numbertext">5 / 8</div>
+                  <img  src="./src/assets/img/fernald/bathroom.jpg">
+                </div>
+                <div class="home-image-gallery-image">
+                  <div class="numbertext">6 / 8</div>
+                  <img  src="./src/assets/img/fernald/chair.jpg">
+                </div>
+                <div class="home-image-gallery-image">
+                  <div class="numbertext">7 / 8</div>
+                  <img  src="./src/assets/img/fernald/7.jpg">
+                </div>
+                <div class="home-image-gallery-image">
+                  <div class="numbertext">8 / 8</div>
+                  <img src="./src/assets/img/fernald/9.jpg">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+
+                <div class="caption-container">
+                  <p id="home-caption"></p>
+                </div>
+
                 <div class="row">
-                  <div class="column">
-                    <img src="./src/assets/img/fernald/5.jpg" alt="Building on the Fernald campus" onclick="photoGalleryFunction(this);">
+                  <div class="image-gallery-column">
+                    <img class="demo cursor" src="./src/assets/img/fernald/5.jpg" alt="Building on the Fernald campus"onclick="currentSlide(1)">
                   </div>
-                  <div class="column">
-                    <img src="./src/assets/img/fernald/environment1.jpg" alt="Stacks of plan books in a Fernald building" onclick="photoGalleryFunction(this);">
+                  <div class="image-gallery-column">
+                    <img class="demo cursor"src="./src/assets/img/fernald/environment1.jpg" alt="Stacks of plan books in a Fernald building"onclick="currentSlide(2)">
                   </div>
-                  <div class="column">
-                    <img src="./src/assets/img/fernald/metstate.jpg" alt="MetState administration building" onclick="photoGalleryFunction(this);">
+                  <div class="image-gallery-column">
+                    <img class="demo cursor" src="./src/assets/img/fernald/metstate.jpg" alt="Stacks of plan books in a Fernald building" onclick="currentSlide(3)">
                   </div>
-                  <div class="column">
-                    <img src="./src/assets/img/fernald/10.jpg" alt="Inside a Fernald building" onclick="photoGalleryFunction(this);">
+                  <div class="image-gallery-column">
+                    <img class="demo cursor" src="./src/assets/img/fernald/10.jpg" alt="Inside a Fernald building" onclick="currentSlide(4)">
                   </div>
-                </div><img src="./src/assets/img/fernald/bathroom.jpg" alt="Bathroom in a Fernald building" onclick="photoGalleryFunction(this);"> 
-                   </div> 
-                   <img src="./src/assets/img/fernald/chair.jpg" alt="Inside a Fernald building" onclick="photoGalleryFunction(this);">
-                  </div> 
-                  <img src="./src/assets/img/fernald/7.jpg" alt="" onclick="photoGalleryFunction(this);">
-                </div> 
-                <img src="./src/assets/img/fernald/9.jpg" alt="Building on Fernald Cmampus" onclick="photoGalleryFunction(this);">
-                
-            
-          
-
-
-
-                <!-- The expanding image container -->
-                <div class="container">
-                  <!-- Close the image -->
-                  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-
-                  <!-- Expanded image -->
-                  <img id="expandedImg" style="width:100%">
-
-                  <!-- Image text -->
-                  <div id="imgtext"></div>
+                  <div class="image-gallery-column">
+                    <img class="demo cursor" src="./src/assets/img/fernald-and-medfield/11.jpg" alt="Bathroom in a Fernald building" onclick="currentSlide(5)">
+                  </div>    
+                  <div class="image-gallery-column">
+                    <img class="demo cursor" src="./src/assets/img/fernald/chair.jpg" alt="Inside a Fernald building" onclick="currentSlide(6)">
+                  </div>
+                   <div class="image-gallery-column">
+                    <img class="demo cursor" src="./src/assets/img/fernald/7.jpg" alt="" sonclick="currentSlide(7)">
+                  </div>
+                  <div class="image-gallery-column">
+                    <img class="demo cursor"  src="./src/assets/img/fernald/9.jpg" alt="Building on Fernald Cmampus" onclick="currentSlide(7)">
+                  </div>
                 </div>
         </div>
     </main>
@@ -98,17 +126,33 @@
         function myhref(url){
             window.location.href = url;
         }
-        function photoGalleryFunction(imgs) {
-          // Get the expanded image
-          var expandImg = document.getElementById("expandedImg");
-          // Get the image text
-          var imgText = document.getElementById("imgtext");
-          // Use the same src in the expanded image as the image being clicked on from the grid
-          expandImg.src = imgs.src;
-          // Use the value of the alt attribute of the clickable image as text inside the expanded image
-          imgText.innerHTML = imgs.alt;
-          // Show the container element (hidden with CSS)
-          expandImg.parentElement.style.display = "block";
+        var homeSlideIndex = 1;
+        showSlides(homeSlideIndex);
+
+        function plusSlides(n) {
+          showSlides(homeSlideIndex += n);
+        }
+
+        function currentSlide(n) {
+          showSlides(homeSlideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("home-image-gallery-image");
+          var dots = document.getElementsByClassName("demo");
+          var captionText = document.getElementById("home-caption");
+          if (n > slides.length) {homeSlideIndex = 1}
+          if (n < 1) {homeSlideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[homeSlideIndex-1].style.display = "block";
+          dots[homeSlideIndex-1].className += " active";
+          captionText.innerHTML = dots[homeSlideIndex-1].alt;
         }
     </script>
 

@@ -13,11 +13,7 @@ body {
 section {
 	display: grid;
 	justify-items: center;
-	margin: 3em 0
-}
-
-.chart-container {
-	margin: 3em 0
+	margin: 3em 0;
 }
 
 nav {
@@ -123,36 +119,37 @@ h1 {
 	font-weight: bold;
 	font-size: 65px;
 	text-align: center;
-	font-family: "Baskerville", sans-serif;
+	font-family: "PT Sans", sans-serif;
 	color: #f9f9f9;
 	padding: 0 .3em
 }
 
 .subhead {
 	font-style: italic;
-	margin: 0 0 2.5em;
+	margin: 0 1em 2.5em;
 	font-size: 28px;
 	text-align: center;
 	color: #f9f9f9
 }
 
 .byline {
+	font-family: "PT Sans Narrow", sans-serif;
 	margin: 0em 0 2em;
 	text-align: center;
 	color: #f9f9f9;
-	font-family: "Baskerville", sans-serif
 }
 
 h2 {
-	font-family: "Baskerville", sans-serif;
+	font-family: "PT Sans", sans-serif;
 	font-weight: regular;
 	font-size: 36px;
 	margin: 0 0 1em 0;
-	justify-self: start
+	justify-self: start;
+	opacity: 1;
 }
 
 .content {
-	margin: 0 0;
+	margin: 0 1em;
 	line-height: 167%;
 	letter-spacing: 0.02em;
 	max-width: 40em
@@ -185,8 +182,8 @@ h2 {
 footer {
 	width: 100%;
 	height: 15vh;
-	border-top: 0.5px solid #f9f9f9;
-	background-color: #f9f9f9
+/*	border-top: 0.5px solid #f9f9f9;*/
+/*	background-color: #f9f9f9*/
 }
 
 #home {
@@ -203,11 +200,11 @@ footer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	box-shadow: 1.5px 1.5px 8px black
+	box-shadow: 1.5px 1.5px 8px black;
 }
 
 #to-main-story {
-	background: linear-gradient(rgba(51, 51, 51, 0.45), rgba(51, 51, 51, 0.45)), url("../../src/assets/img/fernald-and-medfield/6.jpg");
+	background: linear-gradient(rgba(51, 51, 51, 0.35), rgba(51, 51, 51, 0.35)), url("../../src/assets/img/fernald-and-medfield/6.jpg");
 	background-position: center
 }
 
@@ -224,7 +221,7 @@ footer {
 #to-profiles-container {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-gap: 1em;
+	grid-gap: 1.5em;
 	justify-content: stretch;
 	width: 80%
 }
@@ -233,17 +230,17 @@ footer {
 	width: 100%
 }
 
-.to-profile h2 {
-	padding-left: .5em
+.to-profile h2{
+	padding-left: .5em;
 }
 
 #profile1 {
-	background: linear-gradient(rgba(51, 51, 51, 0.45), rgba(51, 51, 51, 0.45)), url("../../src/assets/img/fernald-and-medfield/c1.jpg");
+	background: linear-gradient(rgba(51, 51, 51, 0.35), rgba(51, 51, 51, 0.35)), url("../../src/assets/img/fernald-and-medfield/c2.jpg");
 	background-position: center
 }
 
 #profile2 {
-	background: linear-gradient(rgba(51, 51, 51, 0.45), rgba(51, 51, 51, 0.45)), url("../../src/assets/img/fernald-and-medfield/A1.jpg");
+	background: linear-gradient(rgba(51, 51, 51, 0.35), rgba(51, 51, 51, 0.35)), url("../../src/assets/img/fernald-and-medfield/A1.jpg");
 	background-position: center
 }
 
@@ -253,83 +250,13 @@ footer {
 }
 
 .photo-gallery-container {
-	margin: 5em 3em
-}
-
-.column {
-	float: left;
-	width: 25%;
-	padding: 10px
-}
-
-.column img {
-	opacity: 0.8;
-	cursor: pointer;
-	box-shadow: 1.5px 1.5px 8px black
-}
-
-.column img:hover {
-	opacity: 1
-}
-
-.row:after {
-	content: "";
-	display: table;
-	clear: both
-}
-
-.container {
+	margin: 5em 3em;
 	position: relative;
-	display: none
 }
 
-#imgtext {
-	position: absolute;
-	bottom: 15px;
-	left: 15px;
-	color: white;
-	font-size: 22px;
-	font-family: "PT Sans Narrow", sans-serif;
-	padding: 0 .3em;
-	text-shadow: 2px 2px 8px black
-}
-
-.closebtn {
-	position: absolute;
-	top: 10px;
-	right: 15px;
-	color: white;
-	font-size: 35px;
-	cursor: pointer
-}
-
-#expandedImg {
-	box-shadow: 1.5px 1.5px 8px black
-}
-
-#grave-demo {
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
-	width: 100%;
-	height: 60%;
-	margin-bottom: 5em
-}
-
-#graveDemoSvg {
-	margin-top: 10em
-}
-
-.image-slideshow-container {
-	margin: 3em 0;
-	position: relative
-}
-
-.image-slides1,
-.image-slides2,
-.image-slides3 {
+.home-image-gallery-image {
 	display: none;
-	max-width: 55em
+	height: 95%;
 }
 
 .cursor {
@@ -369,48 +296,135 @@ img {
 
 .numbertext {
 	color: #f9f9f9;
-	font-size: .8em;
+	font-size: 1em;
 	padding: 1em 1.5em;
 	position: absolute;
-	top: 0
+	top: 0;
+	font-family: "PT Sans", sans-serif;
 }
 
 .caption-container {
 	text-align: center;
 	font-style: italic;
 	font-weight: 300;
-	padding: 2px 16px;
-	color: #333
+/*	padding: 2px 16px;*/
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.image-gallery-column {
+  float: left;
+  width: 12.5%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+#home-caption {
+	color: #f9f9f9;
+	background: rgba(0,0,0,0.6);
+}
+
+/* main story*/
+
+.main-story-caption {
+	color: rgba(0,0,0,0.6);
+	margin: 0 1em;
+}
+
+#grave-demo {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	width: 100%;
+	height: 60%;
+	margin-bottom: 5em
+}
+
+#graveDemoSvg {
+	margin-top: 10em
+}
+
+
+.image-slideshow-container {
+	margin: 3em 0;
+	position: relative
+}
+
+.image-slides1,
+.image-slides2,
+.image-slides3 {
+	display: none;
+	max-width: 55em;
+}
+
+.image-slides {
+	max-width: 55em;
+}
+
+#tewksbury-image-container{
+	margin: 3em 0 0;
 }
 
 iframe {
 	width: 80%;
-	margin: 3em 0
+	margin: 3em 0;
 }
 
 #mass-bury-map {
-	width: 60%
+	width: 70%
 }
 
 #juxtapose-container {
 	text-align: center;
-	height: fit-content;
-	width: fit-content
+	position:relative;
+	height: 0;
+/*	margin: 3em 0;*/
+	overflow:hidden;
+	padding-bottom: 70%;
+    width: 100%;
+	height: 100%;
 }
 
-iframe.juxtapose {
-	width: 80vw;
-	height: 60vh
+#juxtapose-container iframe {
+	position: absolute;
+	margin: 0 0;
+	top:0;
+	left:0;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+#juxtapose-caption{
+	margin-bottom: 3em;
 }
 
 #grave-map {
 	width: 100%;
-	height: 100%;
-	position: relative
+	position:relative;
+}
+	
+
+#gravemap-caption {
+	margin-bottom: 3em;
 }
 
 .rects {
-	cursor: pointer
+	cursor: pointer;
+	opacity: 0.9;
+	rx: 2px;
 }
 
 .rectsLabels {
@@ -436,7 +450,82 @@ iframe.juxtapose {
 }
 
 @media only screen and (max-width: 500px) {
-	.rectsLabels {
-		font-size: 0
+
+	h1 {
+		font-size:56px;
 	}
+
+
+	.subhead {
+		font-size: 18px;
+	}
+
+	.byline {
+		font-size: 12px;
+	}
+
+	h2 {
+		font-size: 28px;
+	}
+
+	#to-profiles-container {
+		grid-template-columns: 1fr;
+	}
+
+	.index-page-container {
+		grid-gap: 1em;
+    	margin-top: 2em;
+    	grid-template-rows: 50vh 50vh auto;
+	}
+
+	.index-page-container section {
+		margin-top:0;
+		margin-bottom:0;
+	}
+
+	.photo-gallery-container {
+		margin: 1em 2em;
+	}
+
+	#home-caption {
+	font-size: 14px;
+	}
+
+
+	.rectsLabels {
+		font-size: 6px;
+	}
+
+	#mass-bury-map {
+    width: 90%;
+	}
+
+	.two-col {
+	grid-template-columns: 1fr;
+	}
+
+	#grave-demo {
+		background: white;
+		width: 100vw;
+		height: 50vh;
+	}
+
+	#graveDemoSvg {
+    margin-top: 5em;
+	}
+
+	.right-col-text {
+		opacity: 1
+	}
+
+	.two-col::after {
+		height: 0;
+	}
+
+	.tooltip{
+		max-width: 45%;
+		font-size: 16px;
+		padding: .2em .5em;
+	}
+
 }

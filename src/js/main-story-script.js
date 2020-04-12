@@ -1,8 +1,4 @@
-var smallScreen = window.innergraveMapWidth <= 500 ? true : false;
-
-if (smallScreen) {
-    graveMapHeight = window.innerheight * 1.8;
-}
+var smallScreen = window.innerWidth <= 500 ? true : false;
 
 // Grave Demo 
 var graveDemoWidth = document.querySelector("#grave-demo").clientWidth;
@@ -24,17 +20,22 @@ var graveDemoSvg = d3.select("#grave-demo").append("svg")
     .attr("height", graveDemoHeight)
     .attr('viewBox', [0, 0, graveDemoWidth*1.5, graveDemoHeight*1.5]);
 
+if (smallScreen) {
+    graveDemoSvg 
+    .attr('viewBox', [0, 0, graveDemoWidth, graveDemoHeight]);
+}
+
 var graveDemoBounds = graveDemoSvg.append("g")
     .attr("transform", `translate(${graveDemoMargin.left}, ${graveDemoMargin.top})`);
 
 
 // Grave Map 
 var graveMapWidth = window.innerWidth;
-var graveMapHeight = window.innerHeight;
+var graveMapHeight = graveMapWidth*0.6;
 var graveMapMargin = {
-    top: smallScreen ? 5 : 80,
+    top: smallScreen ? 5 : 50,
     right: smallScreen ? 25 : 60,
-    bottom: smallScreen ? 30 : 80,
+    bottom: smallScreen ? 30 : 50,
     left: smallScreen ? 0 : 30
 }
 
@@ -69,28 +70,14 @@ d3.csv("./src/assets/gravemap.csv").then(function(data){{
 
     data = data.filter(d => d.x !== "");
 
-    // console.log(data)
-    // console.log(demoData)
-
     //Grave Map
     graveMapXScale.domain([0, d3.max(data, graveMapXAccessor)]);
     graveMapYScale.domain([0, d3.max(data, graveMapYAccessor)]);
-
-    if (smallScreen) {
-
-        graveMapXScale
-            .range([0, boundedgraveMapHeight]);
-        graveMapYScale
-            .range([0, boundedgraveMapWidth]);
-
-
-    } else {
 
         graveMapXScale
             .range([0, boundedgraveMapWidth]);
         graveMapYScale
             .range([boundedgraveMapHeight, 0]);
-    }
 
     drawGraveMap(data, graveDemoBounds);
     drawGraveMap(data, graveMapBounds);
@@ -101,9 +88,9 @@ d3.csv("./src/assets/gravemap.csv").then(function(data){{
 function drawGraveMap(data, boundsName) {
 
         var bounds = boundsName; 
-        var rectgraveMapWidth = smallScreen ? 15 : 38;
-        var rectgraveMapHeight =smallScreen ? 38 : 20;
-        var padding = smallScreen ? 3 : 5;
+        var rectgraveMapWidth = smallScreen ? 20 : 38;
+        var rectgraveMapHeight =smallScreen ? 10 : 20;
+        var padding = 5;
 
         var rectsG = bounds.selectAll(".rectangleG")
             .data(data).enter()
@@ -119,19 +106,10 @@ function drawGraveMap(data, boundsName) {
             })
             .attr("fill", d => graveMapColorScale(graveMapColorAccessor(d)))
             .attr("x", function(d){ 
-                if (smallScreen){
-                    return graveMapYScale(graveMapYAccessor(d)) - rectgraveMapWidth / 2 + padding; 
-                } else { 
                     return graveMapXScale(graveMapXAccessor(d)) - rectgraveMapWidth / 2 + padding;  
-                }
              })
             .attr("y", function(d){
-                if (smallScreen) {
-                    return graveMapXScale(graveMapXAccessor(d)) - rectgraveMapHeight / 2 + padding;
-                } else {
                     return graveMapYScale(graveMapYAccessor(d)) + rectgraveMapHeight / 2 + padding;
-                }
-                
             })
             .attr("width", rectgraveMapWidth)
             .attr("height",rectgraveMapHeight);
@@ -141,29 +119,14 @@ function drawGraveMap(data, boundsName) {
             .attr("class", "rectsLabels")
             .text(d => d["Burial Plot Number"].split("-").join(""))
             .attr("x", function(d){ 
-                if (smallScreen){
-                    return graveMapYScale(graveMapYAccessor(d)) + rectgraveMapWidth / 2 + padding;
-                } else { 
                     return graveMapXScale(graveMapXAccessor(d)) + padding;  
-                }
              })
             .attr("y", function(d){
-                if (smallScreen) {
-                    return graveMapXScale(graveMapXAccessor(d)) - padding - rectgraveMapWidth / 2;
-                } else {
                     return graveMapYScale(graveMapYAccessor(d)) + rectgraveMapHeight / 2 + padding;
-                }
-                
             })
             .attr("text-anchor", "middle")
             .attr("baseline-shift", "-100%")
-            .style("pointer-events", "none")
-            .attr("transform", function(d){
-                 if (smallScreen) {
-                    return `rotate(90, ${graveMapYScale(graveMapYAccessor(d)) + padding}, ${graveMapXScale(graveMapXAccessor(d)) - padding})`
-                } 
-            });
-
+            .style("pointer-events", "none");
 
         if (bounds == graveMapBounds){
 
@@ -223,27 +186,51 @@ function drawGraveMap(data, boundsName) {
 
 
             if (direction == "down") {
-                graveDemoSvg
-                .transition()
-                .ease(d3.easeLinear)
-                .duration(3000)
-                .attr('viewBox', [graveDemoWidth/2, 0, graveDemoWidth*1.5, graveDemoHeight*1.5]);
+
+                if (smallScreen) {
+
+                    graveDemoSvg
+                     .attr('viewBox', [0, 0, graveDemoWidth, graveDemoHeight]);
+
+                } else {
+
+                    graveDemoSvg
+                        .transition()
+                        .ease(d3.easeLinear)
+                        .duration(3000)
+                        .attr('viewBox', [graveDemoWidth/2, 0, graveDemoWidth*1.5, graveDemoHeight*1.5]);
+                     
+                }
             }
+
+
 
             if (direction == "up") {
-                graveDemoSvg
-                .transition()
-                .ease(d3.easeLinear)
-                .duration(500)
-                .attr('viewBox', [0, 0, graveDemoWidth*1.5, graveDemoHeight*1.5]);
+
+                 if (smallScreen) {
+
+                    graveDemoSvg
+                     .attr('viewBox', [0, 0, graveDemoWidth, graveDemoHeight]);
+
+                } else {
+
+                    graveDemoSvg
+                    .transition()
+                    .ease(d3.easeLinear)
+                    .duration(500)
+                    .attr('viewBox', [0, 0, graveDemoWidth*1.5, graveDemoHeight*1.5]);
+                     
+                }
+                
             }
 
 
 
-        }, { offset: "70%" });
+        }, { offset: smallScreen ? "80%" : "40%"});
 
 
         $demoMap2.waypoint(function (direction){
+
 
             if (direction == "down"){
                 $("p#demoMap2").addClass("right-paragraph-full-opacity");
@@ -261,29 +248,46 @@ function drawGraveMap(data, boundsName) {
 
                     });
 
+                 if (smallScreen) {
+
+                    graveDemoSvg
+                     .attr('viewBox', [0, 0, graveDemoWidth, graveDemoHeight]);
+
+                } else {
 
                  graveDemoSvg
                 .transition()
                 .ease(d3.easeLinear)
                 .duration(500)
                 .attr('viewBox', [graveDemoWidth, 50, graveDemoWidth, graveDemoHeight]);
+                     
+                }
 
             }
 
             if (direction == "up"){
                 $("p#demoMap2").removeClass("right-paragraph-full-opacity");
                 graveDemoBounds.selectAll(".rectangleG")
-                    .style("opacity", 1);
+                    .style("opacity", 0.9);
 
-                graveDemoSvg
-                .transition()
-                .ease(d3.easeLinear)
-                .duration(500)
-                .attr('viewBox', [graveDemoWidth/2, 0, graveDemoWidth*1.5, graveDemoHeight*1.5]);
+                if (smallScreen) {
+
+                    graveDemoSvg
+                     .attr('viewBox', [0, 0, graveDemoWidth, graveDemoHeight]);
+
+                } else {
+
+                    graveDemoSvg
+                        .transition()
+                        .ease(d3.easeLinear)
+                        .duration(500)
+                        .attr('viewBox', [graveDemoWidth/2, 0, graveDemoWidth*1.5, graveDemoHeight*1.5]);
+                     
+                }
             }
             
 
-        }, {offset: "40%"})
+        }, {offset: smallScreen ? "60%" : "40%"})
 
         $demoMap3.waypoint(function (direction){
 
@@ -304,12 +308,22 @@ function drawGraveMap(data, boundsName) {
 
                     });
 
-                 graveDemoSvg
-                .transition()
-                .ease(d3.easeLinear)
-                .duration(500)
-                .attr('viewBox', zoomIn("C154"));
+                 if (smallScreen) {
 
+                    graveDemoSvg
+                     .attr('viewBox', [0, 0, graveDemoWidth, graveDemoHeight]);
+
+                } else {
+
+                graveDemoSvg
+                    .transition()
+                    .ease(d3.easeLinear)
+                    .duration(500)
+                    .attr('viewBox', zoomIn("C154"));
+                     
+                }
+
+               
             }
 
             if (direction == "up"){
@@ -328,14 +342,26 @@ function drawGraveMap(data, boundsName) {
 
                     });
 
-                 graveDemoSvg
-                .transition()
-                .ease(d3.easeLinear)
-                .duration(500)
-                .attr('viewBox', [graveDemoWidth-100, 0, graveDemoWidth, graveDemoHeight]);
+
+                    if (smallScreen) {
+
+                        graveDemoSvg
+                         .attr('viewBox', [0, 0, graveDemoWidth, graveDemoHeight]);
+
+                    } else {
+
+                            graveDemoSvg
+                                .transition()
+                                .ease(d3.easeLinear)
+                                .duration(500)
+                                .attr('viewBox', [graveDemoWidth-100, 0, graveDemoWidth, graveDemoHeight]);
+                             
+                        }
+
+          
             }
 
-        }, {offset: "30%"})
+        }, {offset: smallScreen ? "60%" : "30%"})
    
 
 
@@ -362,12 +388,14 @@ function plusSlides(n, no) {
 function showSlides(n, no) {
   var i;
   var x = document.getElementsByClassName(slideId[no]);
+  var captionText = document.getElementById(slideId[no]+"-caption");
   if (n > x.length) {slideIndex[no] = 1}    
   if (n < 1) {slideIndex[no] = x.length}
   for (i = 0; i < x.length; i++) {
      x[i].style.display = "none";  
   }
   x[slideIndex[no]-1].style.display = "block";  
+  captionText.innerHTML = x[slideIndex[no]-1].lastElementChild.alt;
 }
 
 // calculate h2 position
@@ -376,7 +404,6 @@ function calH2Position(){
         var contentWidth = document.querySelector("section #content-first").clientWidth;
         d3.selectAll("section .h2-container")
         .style("width", `${contentWidth}px`);
-        console.log(contentWidth)
 }
 
 calH2Position()
