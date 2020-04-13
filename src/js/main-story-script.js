@@ -31,7 +31,7 @@ var graveDemoBounds = graveDemoSvg.append("g")
 
 // Grave Map 
 var graveMapWidth = window.innerWidth;
-var graveMapHeight = graveMapWidth*0.6;
+var graveMapHeight = smallScreen ? graveMapWidth*0.6 : graveMapWidth*0.5;
 var graveMapMargin = {
     top: smallScreen ? 5 : 50,
     right: smallScreen ? 25 : 60,
