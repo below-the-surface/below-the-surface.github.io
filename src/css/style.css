@@ -13,7 +13,7 @@ body {
 section {
 	display: grid;
 	justify-items: center;
-	margin: 3em 0;
+	margin-bottom: 1em;
 }
 
 nav {
@@ -452,6 +452,13 @@ iframe {
 	max-width: 25%;
 	color: #141414
 }
+
+div .ricoh-theta-spherical-image{
+	width: 100% !important;
+    height: 100% !important;
+}
+
+
 
 @media only screen and (max-width: 500px) {
 
