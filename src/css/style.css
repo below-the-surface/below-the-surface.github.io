@@ -512,6 +512,10 @@ div .ricoh-theta-spherical-image{
 		font-size: 28px;
 	}
 
+	.h2-home {
+		margin: 0 0.5em;
+	}
+
 	#to-profiles-container {
 		grid-template-columns: 1fr;
 	}
