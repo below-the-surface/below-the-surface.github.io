@@ -198,6 +198,7 @@ footer {
 	cursor: pointer;
 	overflow: hidden;
 	margin-bottom: 0;
+	width: 80%;
 }
 
 #to-main-story,
@@ -221,7 +222,8 @@ footer {
 
 .index-page-container {
 	display: grid;
-	grid-template-rows: 70vh 50vh auto
+	grid-template-rows: 70vh 50vh auto;
+	justify-items: center;
 }
 
 #to-profiles-container {
@@ -255,18 +257,22 @@ footer {
 	margin: 0
 }
 
-.photo-gallery-container {
-	margin: 5em 3em;
+#photo-gallery-container {
+	margin-top: 3em;
 	position: relative;
-	width: 80%;
 	justify-self: center;
+	display: flex;
+    justify-content: center;
+}
+
+#photo-gallery {
+	width: 80%;
 	background-color:rgba(0,0,0,0.6);
 	box-shadow: 1.5px 1.5px 8px black;
 }
 
 .home-image-gallery-image {
 	display: none;
-	height: 95%;
 }
 
 .cursor {
@@ -289,13 +295,12 @@ img {
 	font-weight: bold;
 	font-size: 18px;
 	transition: 0.6s ease;
-	border-radius: 0 3px 3px 0;
+	border-radius: 3px;
 	user-select: none
 }
 
 .next {
 	right: 0;
-	border-radius: 3px 0 0 3px
 }
 
 .prev {
@@ -395,6 +400,12 @@ img {
 	max-width: 55em;
 }
 
+.image-slides-celia{
+	max-width: 35em;
+}
+
+
+
 #tewksbury-image-container{
 	margin: 3em 0 0;
 }
@@ -419,9 +430,9 @@ iframe {
 	height: 0;
 /*	margin: 3em 0;*/
 	overflow:hidden;
-	padding-bottom: 70%;
-    width: 100%;
-	height: 100%;
+	padding-bottom: 48%;
+    width: 70%;
+	height: 50%;
 }
 
 #juxtapose-container iframe {
@@ -564,5 +575,15 @@ div .ricoh-theta-spherical-image{
 		font-size: 16px;
 		padding: .2em .5em;
 	}
+
+	.caption-container {
+		max-width: 95%;
+	}
+
+	#juxtapose-container {
+	padding-bottom: 75%;
+    width: 100%;
+	height: 70%;
+}
 
 }
