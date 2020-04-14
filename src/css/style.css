@@ -516,6 +516,11 @@ div .ricoh-theta-spherical-image{
 		margin: 0 0.5em;
 	}
 
+	.navigator a, .dropbtn {
+    padding: .5em 0.5em;
+    font-size: 15px;
+	}
+
 	#to-profiles-container {
 		grid-template-columns: 1fr;
 	}
