@@ -29,9 +29,8 @@ nav {
 
 .navigator {
 	font-family: "PT Sans Narrow", sans-serif;
-	text-transform: uppercase;
 	font-style: normal;
-	font-size: 18px;
+	font-size: 1.2em;
 	line-height: 30px;
 	border-bottom: 0.3px solid #f9f9f9
 }
@@ -244,12 +243,14 @@ footer {
 
 #profile1 {
 	background: linear-gradient(rgba(51, 51, 51, 0.35), rgba(51, 51, 51, 0.35)), url("../../src/assets/img/fernald-and-medfield/c2.jpg");
-	background-position: center
+	background-position: center;
+	background-size: cover;
 }
 
 #profile2 {
 	background: linear-gradient(rgba(51, 51, 51, 0.35), rgba(51, 51, 51, 0.35)), url("../../src/assets/img/fernald-and-medfield/A1.jpg");
-	background-position: center
+	background-position: center;
+	background-size: cover;
 }
 
 .h2-home {
@@ -518,7 +519,7 @@ div .ricoh-theta-spherical-image{
 
 	.navigator a, .dropbtn {
     padding: .5em 0.5em;
-    font-size: 15px;
+    font-size: .6em;
 	}
 
 	#to-profiles-container {
